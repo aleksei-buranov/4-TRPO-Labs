@@ -1,0 +1,77 @@
+﻿<Window x:Class="Part78.AlphaviteFilms"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:Part78.ViewModels"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
+        d:DataContext="{d:DesignInstance Type=viewModels:AlphaviteFilmsViewModel, IsDesignTimeCreatable=False}"
+        Title="Алфавитный указатель" Height="400" Width="800" MinWidth="800">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="Margin" Value="2" />
+                <Setter Property="Width" Value="20" />
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="5" Grid.Row="0" Orientation="Horizontal">
+            <Button Content="А" Click="ButtonBase_OnClick" />
+            <Button Content="Б" Click="ButtonBase_OnClick" />
+            <Button Content="В" Click="ButtonBase_OnClick" />
+            <Button Content="Г" Click="ButtonBase_OnClick" />
+            <Button Content="Д" Click="ButtonBase_OnClick" />
+            <Button Content="Е" Click="ButtonBase_OnClick" />
+            <Button Content="Ё" Click="ButtonBase_OnClick" />
+            <Button Content="Ж" Click="ButtonBase_OnClick" />
+            <Button Content="З" Click="ButtonBase_OnClick" />
+            <Button Content="И" Click="ButtonBase_OnClick" />
+            <Button Content="К" Click="ButtonBase_OnClick" />
+            <Button Content="Л" Click="ButtonBase_OnClick" />
+            <Button Content="М" Click="ButtonBase_OnClick" />
+            <Button Content="Н" Click="ButtonBase_OnClick" />
+            <Button Content="О" Click="ButtonBase_OnClick" />
+            <Button Content="П" Click="ButtonBase_OnClick" />
+            <Button Content="Р" Click="ButtonBase_OnClick" />
+            <Button Content="С" Click="ButtonBase_OnClick" />
+            <Button Content="Т" Click="ButtonBase_OnClick" />
+            <Button Content="У" Click="ButtonBase_OnClick" />
+            <Button Content="Ф" Click="ButtonBase_OnClick" />
+            <Button Content="Х" Click="ButtonBase_OnClick" />
+            <Button Content="Ц" Click="ButtonBase_OnClick" />
+            <Button Content="Ч" Click="ButtonBase_OnClick" />
+            <Button Content="Ш" Click="ButtonBase_OnClick" />
+            <Button Content="Щ" Click="ButtonBase_OnClick" />
+            <Button Content="Ъ" Click="ButtonBase_OnClick" />
+            <Button Content="Ы" Click="ButtonBase_OnClick" />
+            <Button Content="Ь" Click="ButtonBase_OnClick" />
+            <Button Content="Э" Click="ButtonBase_OnClick" />
+            <Button Content="Ю" Click="ButtonBase_OnClick" />
+            <Button Content="Я" Click="ButtonBase_OnClick" />
+        </StackPanel>
+        <DataGrid Grid.Row="1"
+                  HeadersVisibility="Column"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  IsReadOnly="True"
+                  Margin="5"
+                  ItemsSource="{Binding Path=Films}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="ID" Binding="{Binding Path=FilmId}" />
+                <DataGridTextColumn Width="2*" Header="Название" Binding="{Binding Path=FilmName}" />
+                <DataGridTextColumn Width="*" Header="Жанр" Binding="{Binding Path=FilmGenre}" />
+                <DataGridTextColumn Width="*" Header="Год" Binding="{Binding Path=FilmYear}" />
+                <DataGridTextColumn Width="*" Header="Продолжительность" Binding="{Binding Path=FilmDuration}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <StatusBar Grid.Row="2">
+            <TextBlock Margin="5" Text="{Binding FilmsCount}" />
+        </StatusBar>
+    </Grid>
+</Window>

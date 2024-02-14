@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Part7.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="FilmsDbConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">films_db.sqlite</Value>
+    </Setting>
+    <Setting Name="MusicStoreConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">music_store.sqlite</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

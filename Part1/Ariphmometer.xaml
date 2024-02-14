@@ -1,0 +1,20 @@
+﻿<Window x:Class="Part1.Ariphmometer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
+        Title="Арифмометр" Height="200" Width="350">
+    <Grid>
+        <StackPanel Height="20" Orientation="Horizontal">
+            <TextBox Name="FirstValue" Width="50" Margin="5 0 0 0" />
+            <Button Content="+" Name="PlusButton" MinWidth="30" Click="PlusButton_Click" />
+            <Button Content="-" Name="MinusButton" MinWidth="30" Click="MinusButton_Click" />
+            <Button Content="*" Name="MultiplyButton" MinWidth="30" Click="MultiplyButton_Click" />
+            <TextBox Name="SecondValue" Width="50" />
+            <TextBlock Text="=" />
+            <TextBox IsReadOnly="True" Name="ResultValue" Width="50" />
+        </StackPanel>
+    </Grid>
+</Window>

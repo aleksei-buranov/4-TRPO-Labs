@@ -1,0 +1,75 @@
+﻿<Window x:Class="Part78.SearchWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:Part78.ViewModels"
+        mc:Ignorable="d" WindowStartupLocation="CenterOwner"
+        d:DataContext="{d:DesignInstance Type=viewModels:SearchWindowViewModel, IsDesignTimeCreatable=False}"
+        Title="Поиск по фильмам" Height="240" Width="500">
+    <Grid IsSharedSizeScope="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Margin="5" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <ComboBox ItemsSource="{Binding SearchLabelsList}"
+                      SelectedItem="{Binding SearchLabel}"
+                      Margin="5 0" Grid.Column="0" IsEditable="False" />
+            <TextBox Text="{Binding SearchText}" Margin="5 0" Grid.Column="1" />
+            <Button Command="{Binding SearchCommand}" Margin="5 0" Grid.Column="2" Width="75" Content="Поиск" />
+        </Grid>
+        <Grid Margin="5" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition SharedSizeGroup="Labels" Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Margin="5 0" Grid.Column="0" Text="ID:" />
+            <TextBox Text="{Binding FilmId}" Margin="5 0" IsReadOnly="True" Grid.Column="1" />
+        </Grid>
+        <Grid Margin="5" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition SharedSizeGroup="Labels" Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Margin="5 0" Grid.Column="0" Text="Название:" />
+            <TextBox Text="{Binding FilmName}" Margin="5 0" IsReadOnly="True" Grid.Column="1" />
+        </Grid>
+        <Grid Margin="5" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition SharedSizeGroup="Labels" Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Margin="5 0" Grid.Column="0" Text="Год выпуска:" />
+            <TextBox Text="{Binding FilmYear}" Margin="5 0" IsReadOnly="True" Grid.Column="1" />
+        </Grid>
+        <Grid Margin="5" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition SharedSizeGroup="Labels" Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Margin="5 0" Grid.Column="0" Text="Жанр:" />
+            <TextBox Text="{Binding FilmGenre}" Margin="5 0" IsReadOnly="True" Grid.Column="1" />
+        </Grid>
+        <Grid Margin="5" Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition SharedSizeGroup="Labels" Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Margin="5 0" Grid.Column="0" Text="Продолжительность:" />
+            <TextBox Text="{Binding FilmDuration}" Margin="5 0" IsReadOnly="True" Grid.Column="1" />
+        </Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="5" Text="{Binding ErrorText}" Grid.Row="6" FontWeight="Bold"
+                   Foreground="Crimson" />
+    </Grid>
+</Window>

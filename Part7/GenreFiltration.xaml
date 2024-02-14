@@ -1,0 +1,36 @@
+﻿<Window x:Class="Part78.GenreFiltration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:Part78.ViewModels"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
+        d:DataContext="{d:DesignInstance Type=viewModels:GenreWindowViewModel, IsDesignTimeCreatable=False}"
+        Title="Поиск по фильмам" Height="400" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="5" Grid.Column="0">
+            <ComboBox Width="150" ItemsSource="{Binding Genres}" SelectedItem="{Binding SelectedGenre}"/>
+            <Button Command="{Binding FilterFilmsCommand}" Margin="10" Width="70" Height="30"
+                    HorizontalAlignment="Center" Content="Пуск" />
+        </StackPanel>
+        <DataGrid Grid.Column="1"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  IsReadOnly="True"
+                  AutoGenerateColumns="False"
+                  Margin="5"
+                  HeadersVisibility="Column"
+                  ItemsSource="{Binding Path=Films}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="3*" Header="Название" Binding="{Binding Path=FilmName}" />
+                <DataGridTextColumn Width="*" Header="Жанр" Binding="{Binding Path=FilmGenre}" />
+                <DataGridTextColumn Width="*" Header="Год" Binding="{Binding Path=FilmYear}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
